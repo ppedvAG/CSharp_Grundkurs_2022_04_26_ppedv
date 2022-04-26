@@ -1,6 +1,6 @@
 # CSharp Grundkurs
 
-C# Grundkurs von 05.04.2022 bis 08.04.2022. Trainer: Lukas Kern (LukasK@ppedv.de).
+C# Grundkurs von 26.04.2022 bis 29.04.2022. Trainer: Lukas Kern (LukasK@ppedv.de).
 
 ## M00 | VORSTELLUNG
 

@@ -27,7 +27,7 @@
 		}
 		else
 		{
-			Console.WriteLine("Parsen hat nicht funktioniert");	
+			Console.WriteLine("Parsen hat nicht funktioniert");
 		}
 
 		(int, int) tuple = AddiereSubtrahiere(10, 5); //Tuple zuweisen

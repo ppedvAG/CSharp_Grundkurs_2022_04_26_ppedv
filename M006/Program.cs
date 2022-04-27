@@ -23,8 +23,8 @@ namespace M006
 			m.Name = "Max"; //set-Property wie Variable verwenden
 			Console.WriteLine(m.Name); //get-Property wie Variable verwenden
 			m.Test(); //Methodenaufruf
-			//m.Vorname = "Max"; //nicht möglich da private set
-			//m.Lieblingsfarbe = "Grün"; //nicht möglich da init
+					  //m.Vorname = "Max"; //nicht möglich da private set
+					  //m.Lieblingsfarbe = "Grün"; //nicht möglich da init
 		}
 	}
 

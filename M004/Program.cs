@@ -43,7 +43,7 @@ for (int i = 0; ; i++) //Endlosschleife mit Zähler
 	break;
 }
 
-for(;;) { break; } //kürzeste Endlosschleife
+for (; ; ) { break; } //kürzeste Endlosschleife
 
 //mehrere Zählervariablen und Iterierungen
 //nicht zwingend ++ sondern *= z.B.

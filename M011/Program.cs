@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 public class Program
 {
-	static void Main(string[] args)
+	static void Main2(string[] args)
 	{
 		List<string> staedte = new List<string>(); //Erstellung einer Liste mit generischem Typ, T wird nach unten weitergegeben
 		staedte.Add("Hamburg");

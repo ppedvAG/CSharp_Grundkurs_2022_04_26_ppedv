@@ -115,7 +115,7 @@ if (wochentage.HasFlag(Wochentag.Montag))
 	Console.WriteLine("Montag ist dabei");
 #endregion
 
-[Flags] //Binärflags, Enum Werte müssen Zweierpotenzen
+[Flags] //Binärflags, Enum Werte müssen Zweierpotenzen sein
 public enum Wochentag //fixe Sammlung an Werten
 {
 	Montag = 1, //Werte anpassen, darunterliegende Werte werden aufgeschoben

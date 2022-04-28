@@ -67,6 +67,7 @@
 			//Alle Fahrzeugmarken
 			List<FahrzeugMarke> alleMarken = fahrzeuge.Select(fzg => fzg.Marke).ToList();
 
+			//Marken einzigartig machen
 			List<FahrzeugMarke> distinct = alleMarken.Distinct().ToList();
 
 			//Summiere alle Geschwindigkeit
@@ -108,6 +109,13 @@
 			//Group zu Dictionary konvertieren
 			Dictionary<FahrzeugMarke, List<Fahrzeug>> groupDictionary = grouped.ToDictionary(group => group.Key, fzg => fzg.ToList());
 			#endregion
+
+			//Liste mischen
+			linqTest.OrderBy(e => Random.Shared.Next());
+
+			//Erweiterungsmethode
+			List<int> shuffled = linqTest.Shuffle().ToList();
+			Console.WriteLine(38752659.Quersumme());
 		}
 	}
 

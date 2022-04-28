@@ -1,6 +1,6 @@
 ﻿public class LabCode
 {
-	static void Main(string[] args)
+	static void Main2(string[] args)
     {
         List<Fahrzeug> fahrzeuge = new List<Fahrzeug>
         {

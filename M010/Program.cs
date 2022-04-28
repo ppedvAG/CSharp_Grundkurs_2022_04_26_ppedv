@@ -10,7 +10,7 @@
 
 		IArbeit a = new Mensch(); //Variable vom Interfacetyp
 		int wochenlohn = a.Gehalt / 160 * IArbeit.Wochenstunden; //Statische Variable
-																 //a.Methode();
+		//a.Methode();
 	}
 }
 

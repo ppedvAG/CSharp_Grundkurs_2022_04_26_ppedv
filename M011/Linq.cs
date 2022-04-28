@@ -74,7 +74,9 @@
 			int summeV = fahrzeuge.Sum(fzg => fzg.MaxGeschwindigkeit);
 
 			//Alle VWs aufsummieren
-			int summeVWs = fahrzeuge.Where(fzg => fzg.Marke == FahrzeugMarke.VW && fzg.MaxGeschwindigkeit >= 200).Sum(fzg => fzg.MaxGeschwindigkeit);
+			int summeVWs = fahrzeuge
+				.Where(fzg => fzg.Marke == FahrzeugMarke.VW && fzg.MaxGeschwindigkeit >= 200)
+				.Sum(fzg => fzg.MaxGeschwindigkeit);
 
 			//Alle Fahrzeuge >= 150
 			bool alle150 = fahrzeuge.All(fzg => fzg.MaxGeschwindigkeit >= 150);

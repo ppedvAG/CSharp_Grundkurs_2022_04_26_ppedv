@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQL", "MySQL\MySQL.csproj", "{0DBC0D7E-AA27-4A11-B0D4-435C47BCC1AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{BC8398B7-2B09-436B-839D-AD52E71BE445}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +181,10 @@ Global
 		{0DBC0D7E-AA27-4A11-B0D4-435C47BCC1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DBC0D7E-AA27-4A11-B0D4-435C47BCC1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DBC0D7E-AA27-4A11-B0D4-435C47BCC1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC8398B7-2B09-436B-839D-AD52E71BE445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC8398B7-2B09-436B-839D-AD52E71BE445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC8398B7-2B09-436B-839D-AD52E71BE445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC8398B7-2B09-436B-839D-AD52E71BE445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

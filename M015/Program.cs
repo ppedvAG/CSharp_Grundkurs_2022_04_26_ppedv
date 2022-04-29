@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.VisualBasic.FileIO;
+using Newtonsoft.Json;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Xml.Serialization;
 using static System.Environment;
 
@@ -15,6 +17,8 @@ public class Program
 
 		if (!Directory.Exists(folderPath)) //Directory Klasse für alles zum Thema Ordner
 			Directory.CreateDirectory(folderPath);
+
+		string filePath = Path.Combine(folderPath, "Test.txt");
 
 		//StreamWriterTest();
 		//StreamReaderTest();
@@ -36,25 +40,53 @@ public class Program
 		};
 
 		#region Json
-		JsonSerializerSettings serializerSettings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Objects }; //Typen in File zusätzlich speichern
+		//JsonSerializerSettings serializerSettings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Objects }; //Typen in File zusätzlich speichern
 
-		string json = JsonConvert.SerializeObject(fahrzeuge, Formatting.Indented, serializerSettings); //Objekt zu Json-String konvertieren
-		string filePath = Path.Combine(folderPath, "Test.txt");
-		File.WriteAllText(filePath, json); //Schnell Text schreiben
+		//string json = JsonConvert.SerializeObject(fahrzeuge, Formatting.Indented, serializerSettings); //Objekt zu Json-String konvertieren
+		//File.WriteAllText(filePath, json); //Schnell Text schreiben
 
-		string read = File.ReadAllText(filePath); //Schnell Json einlesen
-		List<Fahrzeug> fzg = JsonConvert.DeserializeObject<List<Fahrzeug>>(read, serializerSettings); //Json-String zu Objekt über Generic
+		//string read = File.ReadAllText(filePath); //Schnell Json einlesen
+		//List<Fahrzeug> fzg = JsonConvert.DeserializeObject<List<Fahrzeug>>(read, serializerSettings); //Json-String zu Objekt über Generic
 		#endregion
 
 		#region XML
-		XmlSerializer xml = new XmlSerializer(typeof(List<Fahrzeug>));
-		Stream s = new FileStream(filePath, FileMode.Create);
-		xml.Serialize(s, fahrzeuge);
-		s.Dispose();
+		//XmlSerializer xml = new XmlSerializer(typeof(List<Fahrzeug>)); //Typ angeben
+		//using Stream s = new FileStream(filePath, FileMode.Create); //FileStream statt StreamWriter
+		//xml.Serialize(s, fahrzeuge); //Objekte in den Stream schreiben
 
-		Stream readStream = new FileStream(filePath, FileMode.Open);
-		List<Fahrzeug> readFahrzeuge = xml.Deserialize(readStream) as List<Fahrzeug>;
+		//Stream readStream = new FileStream(filePath, FileMode.Open);
+		//List<Fahrzeug> readFahrzeuge = xml.Deserialize(readStream) as List<Fahrzeug>;
 		#endregion
+
+		#region CSV
+		//File.WriteAllText(filePath, fahrzeuge.Aggregate("", (agg, fzg) => agg + $"{fzg.MaxGeschwindigkeit};{fzg.Marke}\n")); //CSV schreiben
+
+		//TextFieldParser tfp = new TextFieldParser(filePath); //CSV Parser
+		//tfp.SetDelimiters(";"); //Trennzeichen zwischen Feldern setzen
+		////string[] header = tfp.ReadFields(); //Header
+		//List<Fahrzeug> personen = new List<Fahrzeug>();
+		//while (!tfp.EndOfData) //Zeile für Zeile durchgehen
+		//{
+		//	string[] fields = tfp.ReadFields();
+		//	Fahrzeug f = new Fahrzeug(int.Parse(fields[0]), Enum.Parse<FahrzeugMarke>(fields[1]));
+		//	personen.Add(f); //Zeile für Zeile als Fahrzeug in Liste schreiben
+		//}
+		#endregion
+
+		#region Binary Serialization
+		//BinaryFormatter formatter = new BinaryFormatter();
+		//using Stream stream = new FileStream(filePath, FileMode.Create);
+		//formatter.Serialize(stream, fahrzeuge);
+
+		//stream.Position = 0;
+		//List<Fahrzeug> fzg = formatter.Deserialize(stream) as List<Fahrzeug>;
+		#endregion
+
+		using Stream str = new FileStream(filePath, FileMode.Create);
+		BinaryWriter bw = new BinaryWriter(str);
+		string json = JsonConvert.SerializeObject(fahrzeuge, Formatting.Indented);
+		bw.Write(json);
+		bw.Flush();
 	}
 
 	public static void StreamWriterTest()
@@ -114,6 +146,8 @@ public class Program
 //Record: Model Klasse generiert Code darunter
 //Wertetyp statt Referenztyp
 //== und != vergleichen die Werte statt den HashCodes
+
+[Serializable] //Klasse als Serializable kennzeichnen
 public record Fahrzeug(int MaxGeschwindigkeit, FahrzeugMarke Marke);
 
 //public class Fahrzeug

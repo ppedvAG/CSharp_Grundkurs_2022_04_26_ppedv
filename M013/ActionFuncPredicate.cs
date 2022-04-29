@@ -21,10 +21,11 @@
 				return x * y;
 			}; //Anonyme Methode
 			func += (x, y) => x * y;
+			func(10, 5);
+			func.Invoke(10, 5);
 
 			List<string> staedteListe = new List<string>() { "Berlin", "Wien", "Paris", "Köln" };
 			staedteListe.ForEach(e => e += "-");
-
 			staedteListe.Find(stadt => stadt.StartsWith('B'));
 		}
 

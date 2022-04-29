@@ -1,8 +1,5 @@
-﻿using M012;
-
-public class Program
+﻿public class Program
 {
-	[Test]
 	static void Main(string[] args)
 	{
 		try
@@ -66,6 +63,6 @@ public class TestException : Exception
 
 	public void Test()
 	{
-
+		//Datenbankverbindung trennen
 	}
 }

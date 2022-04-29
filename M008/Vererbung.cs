@@ -1,22 +1,40 @@
 ﻿public class Vererbung
 {
+	/// <summary>
+	/// Die Basisklasse für Lebewesen
+	/// </summary>
 	public class Lebewesen
 	{
+		/// <summary>
+		/// Der Name des Lebewesens
+		/// </summary>
 		public string Name { get; set; }
 
+		/// <summary>
+		/// Der Basiskonstruktor von Lebewesen
+		/// </summary>
+		/// <param name="name">Der Name des Lebewesens</param>
 		public Lebewesen(string name)
 		{
 			Name = name;
 		}
 
+		/// <summary>
+		/// Gibt den Typen als String aus
+		/// </summary>
 		public virtual void WasBinIch() //Kann überschrieben werden, muss aber nicht
 		{
 			Console.WriteLine("Ich bin ein Lebewesen");
 		}
 
-		public void PrintName()
+		/// <summary>
+		/// Gibt den Namen auf die Konsole aus
+		/// </summary>
+		/// <returns>Gibt 0 zurück</returns>
+		public int PrintName()
 		{
 			Console.WriteLine(Name);
+			return 0;
 		}
 	}
 

@@ -81,12 +81,6 @@ public class Program
 		//stream.Position = 0;
 		//List<Fahrzeug> fzg = formatter.Deserialize(stream) as List<Fahrzeug>;
 		#endregion
-
-		using Stream str = new FileStream(filePath, FileMode.Create);
-		BinaryWriter bw = new BinaryWriter(str);
-		string json = JsonConvert.SerializeObject(fahrzeuge, Formatting.Indented);
-		bw.Write(json);
-		bw.Flush();
 	}
 
 	public static void StreamWriterTest()
